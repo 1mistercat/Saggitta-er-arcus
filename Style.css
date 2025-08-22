@@ -234,7 +234,7 @@ nav a:focus {
     /* Nieuws & Agenda styling */
 
 
- .agenda {
+ .agenda h2 {
   padding: 2.5rem 0;
   background: transparent;
 }
