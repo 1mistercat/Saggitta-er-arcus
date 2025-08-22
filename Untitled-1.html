@@ -29,12 +29,22 @@
     </div>
   </header>
 
-  <!-- BANNER -->
-  <section class="banner">
+  <!-- BANNER 
+    /*<section class="banner">
     <div class="container">
-      <!-- Hier komen diagonale lijnen / design elementen -->
+    </div>
+  </section> -->
+
+
+  <!-- NIEUWS -->
+  <section class="nieuws">
+    <div class="container nieuws-grid">
+      <div class="nieuws-item" id="nieuws1"></div>
+      <div class="nieuws-item" id="nieuws2"></div>
+      <div class="nieuws-item" id="nieuws3"></div>
     </div>
   </section>
+
 
   <!-- OVER ONS -->
   <section class="about">
@@ -54,46 +64,16 @@
 
   <!-- AGENDA -->
   <section class="agenda">
-    <div class="container">
-      <h2>Agenda</h2>
-      <iframe 
-        src="https://nxlwetboek.glide.page" 
-        style="border:0; width:100%; height:600px;" 
-        frameborder="0" 
-        scrolling="no">
-      </iframe>
+    <h2 class="nieuws">Agenda</h2>
+    <div class="container agenda-grid">
+      <div id="agenda-item" class="agenda-item"></div>
+      <div id="agenda-item" class="agenda-item"></div>
+      <div id="agenda-item" class="agenda-item"></div>
+      <div id="agenda-item" class="agenda-item"></div>
     </div>
   </section>
 
-  <title>Iframe Example</title>
-    <style>
-        iframe {
-            width: 100%;
-            height: 500px;
-            border: none;
-        }
-    </style>
-  <h1>My Embedded Site</h1>
-    <iframe src="https://nxlwetboek.glide.page"></iframe>
 
-
-  <!-- NIEUWS -->
-  <section class="nieuws">
-    <div class="container nieuws-grid">
-      <div class="nieuws-item">
-        <h3>Nieuws artikelen</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit...</p>
-      </div>
-      <div class="nieuws-item">
-        <h3>Nieuws artikelen</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit...</p>
-      </div>
-      <div class="nieuws-item">
-        <h3>Nieuws artikelen</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit...</p>
-      </div>
-    </div>
-  </section>
 
   <!-- SPONSOREN -->
   <section class="sponsoren">
@@ -128,6 +108,59 @@
       </div>
     </div>
   </footer>
+
+   <script>
+    async function laadNieuws() {
+      let url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTVxjCCPTognHnuuX9xZAJFBSDl4NtPNHC51MRDaL3pdG0pMzC_y9qLllIxyQeRidh28evRzIsBUjJ3/pub?gid=0&single=true&output=csv"; 
+      let response = await fetch(url);
+      let data = await response.text();
+
+      let rows = data.split("\n").slice(1); 
+      rows.forEach((row, i) => {
+        let [titel, tekst] = row.split(",");
+        if (titel && tekst && i < 3) {
+          document.getElementById(`nieuws${i+1}`).innerHTML = `<h3>${titel}</h3><p>${tekst}</p>`;
+        }
+      });
+    }
+
+
+
+    async function laadAgenda() {
+      let url = "https://calendar.google.com/calendar/ical/william17maas10%40gmail.com/public/basic.ics"; // jouw publieke iCal link
+      let response = await fetch(url);
+      let data = await response.text();
+
+      let events = data.split("BEGIN:VEVENT").slice(1);
+      let parsedEvents = events.map(event => {
+        let dateMatch = event.match(/DTSTART.*:(\d{8}T\d{6}Z?)/);
+        let summaryMatch = event.match(/SUMMARY:(.*)/);
+
+        let date = dateMatch ? dateMatch[1] : "";
+        let title = summaryMatch ? summaryMatch[1] : "";
+
+        if (date.length >= 8) {
+          let jaar = date.substring(0,4);
+          let maand = date.substring(4,6);
+          let dag = date.substring(6,8);
+          date = `${dag}-${maand}-${jaar}`;
+        }
+
+        return { date, title };
+      });
+
+      let upcoming = parsedEvents.filter(e => e.date).slice(0,4);
+
+      upcoming.forEach((e, i) => {
+        document.getElementById(`agenda${i+1}`).innerHTML = `<h3>${e.date}</h3><p>${e.title}</p>`;
+      });
+    }
+
+    // Beide functies aanroepen
+    laadNieuws();
+    laadAgenda();
+  </script>
+
 
 </body>
 </html>

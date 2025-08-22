@@ -13,7 +13,7 @@
   --white: #ffffff;
   --light-gray: #DEDEDE;
   --muted-gray: #F0F0F0;
-  --max-width: 1200px; 
+  --max-width: 1600px; 
   --gap: 1.25rem;
   --radius: 6px;
 }
@@ -28,6 +28,7 @@ html,body{
   height: 100%;
   margin: 0;
   font-family: "Raleway", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size: 16px;
   color: var(--black);
   background: var(--white);
   -webkit-font-smoothing: antialiased;
@@ -36,7 +37,7 @@ html,body{
 
 .container {
   max-width: 1200px;
-  width: 100%;
+  width: 90%;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -225,29 +226,62 @@ nav a:focus {
   }
 }
 
+
 /* -------------------------
    Agenda
    ------------------------- */
-.agenda {
-  padding: 2rem 0;
-  text-align: center;
+    /* Nieuws & Agenda styling */
+
+
+ .agenda {
+  padding: 2.5rem 0;
+  background: transparent;
+}
+h2 {
+margin-left: 20%;
+font-size: 2rem;
+}
+.agenda-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.agenda img {
-  max-width: 100%;
-  height: auto;
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid rgba(0,0,0,0.08);
+.agenda-item {
+  background: var(--light-gray);
+  border: 1px solid var(--black);
+  padding: 1rem;
+  min-height: auto;
+  border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Agenda heading */
-.agenda h2 {
+.agenda-item h3{
   font-family: "Bluu Next", "Raleway", sans-serif;
-  font-weight: 700;
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem 0;
 }
+
+.agenda-item p{
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Responsive news grid */
+@media (max-width: 1000px){
+  .agenda-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px){
+  .Agenda-grid { grid-template-columns: 1fr; }
+}
+
 
 /* -------------------------
    Nieuws (news grid)
@@ -255,6 +289,10 @@ nav a:focus {
 .nieuws {
   padding: 2.5rem 0;
   background: transparent;
+}
+
+h2 {
+margin-left: 20%;
 }
 
 .nieuws-grid {
@@ -271,7 +309,7 @@ nav a:focus {
   background: var(--light-gray);
   border: 1px solid var(--black);
   padding: 1rem;
-  min-height: 220px;
+  min-height: auto;
   border-radius: var(--radius);
   position: relative;
   overflow: hidden;
@@ -291,7 +329,7 @@ nav a:focus {
 }
 
 /* Add small diagonal line motif inside each news item */
-.nieuws-item::before,
+/*.nieuws-item::before,
 .nieuws-item::after {
   content: "";
   position: absolute;
@@ -339,6 +377,8 @@ nav a:focus {
   border: 1px solid rgba(0,0,0,0.06);
 }
 
+
+
 /* Responsive sponsors */
 @media (max-width: 900px) {
   .sponsoren .container {
@@ -350,6 +390,11 @@ nav a:focus {
     grid-template-columns: 1fr;
   }
 }
+/* -------------------------
+   einde Sponsoren
+   ------------------------- */
+
+
 
 /* -------------------------
    Footer
@@ -443,16 +488,10 @@ section { padding-left: 0; padding-right: 0; }
   height: auto;
 }
 
-.agenda iframe {
-  width: 100% !important;
-  max-width: 100%;
-  height: 600px;
+@media (min-width: 1600px) {
+  .container {
+    padding: 0 10rem; /* iets meer ruimte aan zijkanten */
+  }
 }
 
-.nieuws-grid {
-  width: 100%;
-}
 
-.nieuws-item {
-  width: 100%;
-}
