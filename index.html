@@ -159,10 +159,21 @@ async function laadAgendaJSON() {
     let dateFormatted = `${String(dateObj.getDate()).padStart(2,'0')}-${String(dateObj.getMonth()+1).padStart(2,'0')}-${dateObj.getFullYear()}`;
 
     let timeformatted = "";
+    if (event.start.dateTime) {
+    let hours = String(dateObj.getHours()).padStart(2, '0');
+    let minutes = String(dateObj.getMinutes()).padStart(2, '0');
+    timeFormatted = `${hours}:${minutes}`;
+    }
 
+     let location = event.location ? `<p>Locatie: ${event.location}</p>` : "";
+    // Vul HTML element
     let elem = document.getElementById(`agenda${i+1}`);
     if (elem) {
-      elem.innerHTML = `<h3>${dateFormatted}</h3><p>${event.summary}</p>`;
+      elem.innerHTML = `
+        <h3>${dateFormatted} ${timeFormatted}</h3>
+        <p>${event.summary}</p>
+        ${location}
+      `;
     }
   });
 }
