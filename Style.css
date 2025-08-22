@@ -234,14 +234,11 @@ nav a:focus {
     /* Nieuws & Agenda styling */
 
 
- .agenda h2 {
+ .agenda  {
   padding: 2.5rem 0;
   background: transparent;
 }
-h2 {
-margin-left: 20%;
-font-size: 2rem;
-}
+
 .agenda-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -250,6 +247,11 @@ font-size: 2rem;
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 1rem;
+}
+
+h2{
+  margin-left: 20%;  
+
 }
 
 .agenda-item {
