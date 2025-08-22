@@ -66,10 +66,10 @@
   <section class="agenda">
     <h2 class="nieuws">Agenda</h2>
     <div class="container agenda-grid">
-      <div id="agenda-item" class="agenda-item"></div>
-      <div id="agenda-item" class="agenda-item"></div>
-      <div id="agenda-item" class="agenda-item"></div>
-      <div id="agenda-item" class="agenda-item"></div>
+      <div id="agenda1" class="agenda-item"></div>
+      <div id="agenda2" class="agenda-item"></div>
+      <div id="agenda3" class="agenda-item"></div>
+      <div id="agenda4" class="agenda-item"></div>
     </div>
   </section>
 
@@ -126,39 +126,50 @@
 
 
 
-    async function laadAgenda() {
-      let url = "https://calendar.google.com/calendar/ical/william17maas10%40gmail.com/public/basic.ics"; // jouw publieke iCal link
-      let response = await fetch(url);
-      let data = await response.text();
 
-      let events = data.split("BEGIN:VEVENT").slice(1);
-      let parsedEvents = events.map(event => {
-        let dateMatch = event.match(/DTSTART.*:(\d{8}T\d{6}Z?)/);
-        let summaryMatch = event.match(/SUMMARY:(.*)/);
+async function laadAgendaJSON() {
+  let url = "https://www.googleapis.com/calendar/v3/calendars/william17maas10@gmail.com/events?key=AIzaSyAjU7CiPIs4hRtM9p5uJDXJunghk7SASbg";
+  let response = await fetch(url);
+  let data = await response.json();
 
-        let date = dateMatch ? dateMatch[1] : "";
-        let title = summaryMatch ? summaryMatch[1] : "";
+  let events = data.items;
 
-        if (date.length >= 8) {
-          let jaar = date.substring(0,4);
-          let maand = date.substring(4,6);
-          let dag = date.substring(6,8);
-          date = `${dag}-${maand}-${jaar}`;
-        }
+  // Filter: alleen events vanaf vandaag
+  let vandaag = new Date();
+  vandaag.setHours(0,0,0,0); // Zet tijd op 00:00 voor correcte vergelijking
+  events = events.filter(e => {
+    let eventDate = new Date(e.start.dateTime || e.start.date);
+    return eventDate >= vandaag;
+  });
 
-        return { date, title };
-      });
+  // Sorteer op startdatum
+  events.sort((a, b) => {
+    let dateA = new Date(a.start.dateTime || a.start.date);
+    let dateB = new Date(b.start.dateTime || b.start.date);
+    return dateA - dateB;
+  });
 
-      let upcoming = parsedEvents.filter(e => e.date).slice(0,4);
+  // Pak de eerste 4 aankomende events
+  let upcoming = events.slice(0, 4);
 
-      upcoming.forEach((e, i) => {
-        document.getElementById(`agenda${i+1}`).innerHTML = `<h3>${e.date}</h3><p>${e.title}</p>`;
-      });
+  upcoming.forEach((event, i) => {
+    let dateRaw = event.start.dateTime || event.start.date;
+    let dateObj = new Date(dateRaw);
+    let dateFormatted = `${String(dateObj.getDate()).padStart(2,'0')}-${String(dateObj.getMonth()+1).padStart(2,'0')}-${dateObj.getFullYear()}`;
+
+    let elem = document.getElementById(`agenda${i+1}`);
+    if (elem) {
+      elem.innerHTML = `<h3>${dateFormatted}</h3><p>${event.summary}</p>`;
     }
+  });
+}
+
+
+
 
     // Beide functies aanroepen
     laadNieuws();
-    laadAgenda();
+    laadAgendaJSON();
   </script>
 
 
