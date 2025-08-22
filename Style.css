@@ -33,6 +33,7 @@ html,body{
   background: var(--white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+   margin-right: 270px; /* ruimte voor agenda aan rechterkant */
 }
 
 
@@ -234,57 +235,51 @@ nav a:focus {
     /* Nieuws & Agenda styling */
 
 
- .agenda  {
-  padding: 2.5rem 0;
-  background: transparent;
-}
-
-.agenda-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-  align-items: start;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-h2{
- align-items: start;
-
-}
-
-.agenda-item {
+.agenda-sidebar {
+  position: sticky;       /* blijft zichtbaar bij scrollen */
+  top: 100px;             /* ruimte onder header */
+  right: 0;
+  width: 250px;
   background: var(--light-gray);
-  border: 1px solid var(--black);
   padding: 1rem;
-  min-height: auto;
+  border-left: 2px solid var(--black);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: calc(100vh - 120px); /* past in schermhoogte */
+  overflow-y: auto;       /* scrollbaar als te veel items */
+  margin-left: auto;      /* duwt het naar de rechterkant */
   border-radius: var(--radius);
-  position: relative;
-  overflow: hidden;
 }
 
-.agenda-item h3{
-  font-family: "Bluu Next", "Raleway", sans-serif;
-  font-size: 1.25rem;
-  margin: 0 0 0.5rem 0;
+/* Style individuele agenda-items */
+.agenda-sidebar .agenda-item {
+  background: var(--white);
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.agenda-item p{
-  font-weight: 300;
+.agenda-sidebar .agenda-item h3 {
   font-size: 1rem;
-  line-height: 1.45;
+  margin-bottom: 0.25rem;
+}
+
+.agenda-sidebar .agenda-item p {
+  font-size: 0.875rem;
   margin: 0;
 }
 
-/* Responsive news grid */
-@media (max-width: 1000px){
-  .agenda-grid { grid-template-columns: repeat(2, 1fr); }
+/* Responsive: op klein scherm verberg sidebar of maak full width */
+@media (max-width: 900px) {
+  .agenda-sidebar {
+    position: relative;
+    width: 100%;
+    border-left: none;
+    max-height: none;
+    margin: 2rem 0;
+  }
 }
-@media (max-width: 600px){
-  .Agenda-grid { grid-template-columns: 1fr; }
-}
-
 
 /* -------------------------
    Nieuws (news grid)
