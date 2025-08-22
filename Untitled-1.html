@@ -170,6 +170,27 @@ async function laadAgendaJSON() {
     // Beide functies aanroepen
     laadNieuws();
     laadAgendaJSON();
+
+function scaleBody() {
+  const vw = window.innerWidth; // breedte van het actieve browservenster
+  let scale = 1;
+
+  if (vw < 600) scale = 0.7;       // klein mobiel
+  else if (vw < 900) scale = 0.8;  // groot mobiel / klein tablet
+  else if (vw < 1200) scale = 0.85; // tablet / kleine desktop
+  else if (vw < 1920) scale = 0.5;  // groot scherm (inclusief 1920x1080 venster)
+  else if (vw < 2560) scale = 0.85; // extra groot scherm (>1920 venster)
+  else scale = 1;                   // ultra groot venster
+
+  document.body.style.transform = `scale(${scale})`;
+  document.body.style.transformOrigin = 'top left';
+  document.body.style.width = `${100 / scale}%`;
+  document.body.style.overflowX = 'hidden';
+}
+
+// Voer uit bij laden en bij venster-resize
+window.addEventListener('load', scaleBody);
+window.addEventListener('resize', scaleBody);
   </script>
 
 
