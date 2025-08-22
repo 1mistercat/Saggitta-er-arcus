@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sagitta et Arcus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bluu+Next:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="Asset 3@2x.png" alt="Sagitta et Arcus Logo" height="168" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Agenda</a></li>
+          <li><a href="#">Nieuws</a></li>
+          <li><a href="#">Lid worden</a></li>
+          <li><a href="#">Over ons</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- BANNER 
+    /*<section class="banner">
+    <div class="container">
+    </div>
+  </section> -->
+
+  <!-- SPONSOREN -->
+  <section class="sponsoren">
+    <div class="container">
+      <h2>Sponsoren</h2>
+      <!-- Logo’s of blokken voor sponsoren -->
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo">
+        <img src="war4ye.png" alt="Sagitta et Arcus Logo" height="168" />
+      </div>
+      <div class="footer-links">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Nieuws</a></li>
+          <li><a href="#">Agenda</a></li>
+          <li><a href="#">Over ons</a></li>
+          <li><a href="#">Lid worden</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-socials">
+        <p>Socials</p>
+        <!-- Social media icons of links hier -->
+      </div>
+      <div class="copyright">
+        <p>Copyright © 2025 Sagitta et Arcus</p>
+      </div>
+    </div>
+  </footer>
+
+   <script>
+  
+
+function scaleBody() {
+  const vw = window.innerWidth; // breedte van het actieve browservenster
+  let scale = 1;
+
+  if (vw < 600) scale = 0.7;       // klein mobiel
+  else if (vw < 900) scale = 0.75;  // groot mobiel / klein tablet
+  else if (vw < 1200) scale = 0.8; // tablet / kleine desktop
+  else if (vw < 1920) scale = 0.85;  // groot scherm (inclusief 1920x1080 venster)
+  else if (vw < 2560) scale = 1.15; // extra groot scherm (>1920 venster)
+  else scale = 1.30;                   // ultra groot venster
+
+  document.body.style.transform = `scale(${scale})`;
+  document.body.style.transformOrigin = 'top left';
+  document.body.style.width = `${100 / scale}%`;
+  document.body.style.overflowX = 'hidden';
+}
+
+// Voer uit bij laden en bij venster-resize
+window.addEventListener('load', scaleBody);
+window.addEventListener('resize', scaleBody);
+  </script>
+
+
+</body>
+</html>
