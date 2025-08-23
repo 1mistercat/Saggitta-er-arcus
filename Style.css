@@ -260,7 +260,7 @@ font-size: 2rem;
   border-radius: var(--radius);
   position: relative;
   overflow: hidden;
-  background-color: aqua;
+  background-color: rgb(204, 203, 221);
 }
 
 .agenda-item h3{
