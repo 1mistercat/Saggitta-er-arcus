@@ -167,7 +167,7 @@ nav a:focus {
 .about .container {
   display: grid;
   grid-template-columns: 1fr 480px;
-  gap: 2rem;
+  gap: 1rem;
   align-items: start;
 }
 
@@ -175,7 +175,7 @@ nav a:focus {
   font-family: "Bluu Next", "Raleway", sans-serif;
   font-weight: 700;
   font-size: 2rem;
-  margin: 0 0 1rem 0;
+  margin: 2rem 0 0 0;
 }
 
 .about p {
