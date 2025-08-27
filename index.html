@@ -155,7 +155,7 @@
     let dateObj = new Date(dateRaw);
     let dateFormatted = `${String(dateObj.getDate()).padStart(2,'0')}-${String(dateObj.getMonth()+1).padStart(2,'0')}-${dateObj.getFullYear()}`;
 
-    let timeFormatted = "";
+    let timeformatted = "";
     if (event.start.dateTime) {
     let hours = String(dateObj.getHours()).padStart(2, '0');
     let minutes = String(dateObj.getMinutes()).padStart(2, '0');
@@ -167,7 +167,7 @@
     let elem = document.getElementById(`agenda${i+1}`);
     if (elem) {
       elem.innerHTML = `
-        <h3>${dateFormatted} ${timeFormatted}</h3>
+        <h3>${dateFormatted} ${timeformatted}</h3>
         <p>${event.summary}</p>
         ${location}
       `;
