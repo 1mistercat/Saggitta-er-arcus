@@ -190,7 +190,7 @@ function scaleBody() {
   else if (vw < 900) scale = 0.75;  // groot mobiel / klein tablet
   else if (vw < 1200) scale = 0.8;  // tablet / kleine desktop
   else if (vw < 1920) scale = 0.80; // groot scherm (inclusief 1920x1080 venster)
-  else if (vw < 2560) scale = 0.95; // extra groot scherm (>1920 venster)
+  else if (vw < 2560) scale = 0.8; // extra groot scherm (>1920 venster)
   else scale = 1;                   // ultra groot venster
 
   document.body.style.transform = `scale(${scale})`;
