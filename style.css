@@ -157,130 +157,34 @@ nav a:focus {
   z-index: 2;
 }
 
-/* -------------------------
-   About section
-   ------------------------- */
-.about {
-  padding: 3rem 0;
+/* Over ons + Agenda naast elkaar */
+.about-agenda .container {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* links breed, rechts smaller */
+  gap: 2rem;
+  align-items: start;
 }
 
-.about .container {
-  display: grid;
-  grid-template-columns: 1fr 480px;
+.about-content {
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
-  align-items: start;
 }
 
-.about h2 {
-  font-family: "Bluu Next", "Raleway", sans-serif;
-  font-weight: 700;
-  font-size: 2rem;
-  margin: 2rem 0 0 0;
-}
-
-.about p {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  font-weight: 700;
-}
-
-/* Image box (replaces many absolute rectangles) */
-.image-box {
-  background: var(--light-gray);
-  border: 1px solid var(--black);
-  height: 303px;
-  border-radius: var(--radius);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Decorative diagonal lines inside cards */
-.image-box::before,
-.image-box::after {
-  content: "";
-  position: absolute;
-  width: 140%;
-  height: 2px;
-  background: var(--black);
-  left: -20%;
-  top: 25%;
-}
-
-.image-box::before {
-  transform: rotate(-30deg);
-}
-
-.image-box::after {
-  transform: rotate(30deg);
-  top: 65%;
-}
-
-/* Responsive: stack columns on small screens */
-@media (max-width: 1000px) {
-  .about .container {
-    grid-template-columns: 1fr;
-  }
-  .image-box {
-    margin-top: 1rem;
-    width: 100%;
-    height: 260px;
-  }
-}
-
-
-/* -------------------------
-   Agenda
-   ------------------------- */
-    /* Nieuws & Agenda styling */
-
-
- .agenda {
-  padding: 2.5rem 0;
+.about-agenda .agenda {
   background: transparent;
-}
-h2 {
-margin-left: 20%;
-font-size: 2rem;
-}
-.agenda-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-  align-items: start;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 1rem;
+  padding-top: 2rem;
 }
 
-.agenda-item {
-  background: var(--light-gray);
-  border: 1px solid var(--black);
-  padding: 1rem;
-  min-height: auto;
-  border-radius: var(--radius);
-  position: relative;
-  overflow: hidden;
+.about-agenda .agenda h2 {
+  margin-left: 0; /* geen extra margin links */
 }
 
-.agenda-item h3{
-  font-family: "Bluu Next", "Raleway", sans-serif;
-  font-size: 1.25rem;
-  margin: 0 0 0.5rem 0;
-}
-
-.agenda-item p{
-  font-weight: 300;
-  font-size: 1rem;
-  line-height: 1.45;
-  margin: 0;
-}
-
-/* Responsive news grid */
-@media (max-width: 1000px){
-  .agenda-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px){
-  .Agenda-grid { grid-template-columns: 1fr; }
+/* Responsive stacking op kleinere schermen */
+@media (max-width: 1000px) {
+  .about-agenda .container {
+    grid-template-columns: 1fr; /* onder elkaar */
+  }
 }
 
 
