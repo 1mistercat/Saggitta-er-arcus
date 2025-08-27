@@ -125,7 +125,7 @@
 
 
 
-async function laadAgendaJSON() {
+  async function laadAgendaJSON() {
   let url = "https://www.googleapis.com/calendar/v3/calendars/william17maas10@gmail.com/events?key=AIzaSyAjU7CiPIs4hRtM9p5uJDXJunghk7SASbg";
   let response = await fetch(url);
   let data = await response.json();
@@ -155,7 +155,7 @@ async function laadAgendaJSON() {
     let dateObj = new Date(dateRaw);
     let dateFormatted = `${String(dateObj.getDate()).padStart(2,'0')}-${String(dateObj.getMonth()+1).padStart(2,'0')}-${dateObj.getFullYear()}`;
 
-    let timeformatted = "";
+    let timeFormatted = "";
     if (event.start.dateTime) {
     let hours = String(dateObj.getHours()).padStart(2, '0');
     let minutes = String(dateObj.getMinutes()).padStart(2, '0');
