@@ -6,7 +6,7 @@
   <title>Sagitta et Arcus</title>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Bluu+Next:wght@700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="Style.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -125,7 +125,7 @@
 
 
 
-async function laadAgendaJSON() {
+  async function laadAgendaJSON() {
   let url = "https://www.googleapis.com/calendar/v3/calendars/william17maas10@gmail.com/events?key=AIzaSyAjU7CiPIs4hRtM9p5uJDXJunghk7SASbg";
   let response = await fetch(url);
   let data = await response.json();
@@ -167,7 +167,7 @@ async function laadAgendaJSON() {
     let elem = document.getElementById(`agenda${i+1}`);
     if (elem) {
       elem.innerHTML = `
-        <h3>${dateFormatted} ${timeFormatted}</h3>
+        <h3>${dateFormatted} ${timeformatted}</h3>
         <p>${event.summary}</p>
         ${location}
       `;
@@ -189,8 +189,8 @@ function scaleBody() {
   if (vw < 600) scale = 0.7;        // klein mobiel
   else if (vw < 900) scale = 0.75;  // groot mobiel / klein tablet
   else if (vw < 1200) scale = 0.8;  // tablet / kleine desktop
-  else if (vw < 1920) scale = 0.80; // groot scherm (inclusief 1920x1080 venster)
-  else if (vw < 2560) scale = 0.95; // extra groot scherm (>1920 venster)
+  else if (vw < 1920) scale = 0.85; // groot scherm (inclusief 1920x1080 venster)
+  else if (vw < 2560) scale = 0.9; // extra groot scherm (>1920 venster)
   else scale = 1;                   // ultra groot venster
 
   document.body.style.transform = `scale(${scale})`;
