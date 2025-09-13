@@ -22,7 +22,7 @@
           <li><a href="#">Nieuws</a></li>
           <li><a href="lidworden.html#">Lid worden</a></li>
           <li><a href="#">Over ons</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="index.php">Contact</a></li>
         </ul>
       </nav>
     </div>
