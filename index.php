@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sagitta et Arcus</title>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Bluu+Next:wght@700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="Style.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -178,16 +177,20 @@ async function laadAgendaJSON() {
   // Pak de eerste 4 aankomende events
   let upcoming = events.slice(0, 4);
 
-  upcoming.forEach((event, i) => {
+  upcoming.forEach((event, i) => 
+    { 
     let dateRaw = event.start.dateTime || event.start.date;
     let dateObj = new Date(dateRaw);
     let dateFormatted = `${String(dateObj.getDate()).padStart(2,'0')}-${String(dateObj.getMonth()+1).padStart(2,'0')}-${dateObj.getFullYear()}`;
 
-    let timeformatted = "";
+    let timeFormatted = '';
     if (event.start.dateTime) {
     let hours = String(dateObj.getHours()).padStart(2, '0');
+    console.log(hours);
     let minutes = String(dateObj.getMinutes()).padStart(2, '0');
+    console.log(minutes);
     timeFormatted = `${hours}:${minutes}`;
+    console.log(timeFormatted);
     }
 
      let location = event.location ? `<p>Locatie: ${event.location}</p>` : "";
