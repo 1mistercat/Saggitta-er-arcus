@@ -18,6 +18,12 @@
   --radius: 6px;
 }
 
+@font-face {
+    font-family: 'Raleway';
+    src: url('Fonts/Raleway-VariableFont_wght.woff2') format('woff2'),
+         url('Fonts/Raleway-VariableFont_wght.ttf') format('truetype');
+}  
+
 *,
 *::before,
 *::after {
@@ -172,7 +178,7 @@ nav a:focus {
 }
 
 .about h2 {
-  font-family: "Bluu Next", "Raleway", sans-serif;
+  font-family: "Raleway";
   font-weight: 700;
   font-size: 2rem;
   margin: 2rem 0 0 0;
@@ -263,7 +269,7 @@ font-size: 2rem;
 }
 
 .agenda-item h3{
-  font-family: "Bluu Next", "Raleway", sans-serif;
+  font-family: "Raleway";
   font-size: 1.25rem;
   margin: 0 0 0.5rem 0;
 }
@@ -317,12 +323,13 @@ margin-left: 20%;
 }
 
 .nieuws-item h3{
-  font-family: "Bluu Next", "Raleway", sans-serif;
+  font-family: "Raleway";
   font-size: 1.25rem;
   margin: 0 0 0.5rem 0;
 }
 
 .nieuws-item p{
+  font-family: "Raleway";
   font-weight: 300;
   font-size: 1rem;
   line-height: 1.45;
