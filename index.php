@@ -12,7 +12,7 @@
   <header>
     <div class="container">
       <div class="logo">
-        <img src="Asset 3@2x.png" alt="Sagitta et Arcus Logo" height="168" />
+        <img src="Media/SetA-Logo.jpg" alt="Sagitta et Arcus Logo" height="600" />
       </div>
       <nav>
         <ul>
@@ -49,7 +49,9 @@
     <div class="container">
       <h2>Over Sagitta et Arcus</h2><hr>
       <p>
-        Sagitta et Arcus is eind jaren 80 opgericht in Nijverdal. De vereniging heeft als doelstelling om de handboogsport in al zijn aspecten te bevorderen. Wij zijn aangesloten bij de Nederlandse Handboog Bond (NHB) wat ons de mogelijkheid biedt om aan landelijke wedstrijden deel te nemen. Meer informatie over Sagitta et Arcus vindt u hier!
+        Sagitta et Arcus is eind jaren 80 opgericht in Nijverdal. 
+        De vereniging heeft als doelstelling om de handboogsport in al zijn aspecten te bevorderen. 
+        De vereniging is aangesloten bij de Nederlandse Handboog Bond (NHB) wat ons de mogelijkheid biedt om aan landelijke wedstrijden deel te nemen.
       </p>
       <div class="image-box">
         <img src="Untxdfghnitled.png" alt="Over ons afbeelding" />
@@ -83,7 +85,7 @@
   <footer>
     <div class="container">
       <div class="footer-logo">
-        <img src="war4ye.png" alt="Sagitta et Arcus Logo" height="168" />
+        <img src="Media/SetA-Logo.jpg" alt="Sagitta et Arcus Logo" height="600" />
       </div>
       <div class="footer-links">
         <ul>
@@ -97,6 +99,7 @@
       </div>
       <div class="footer-socials">
         <p>Socials</p>
+        <a href="https://www.facebook.com/sagittaetarcus.nijverdal" target="_blank"><img src="Media/SetA-PictoFB.jpg" alt="FaceBook" height="28" /></a>
         <!-- Social media icons of links hier -->
       </div>
       <div class="copyright">
@@ -109,13 +112,12 @@
 <?php
   echo "<script>\n";
   echo "async function DisplayNews() {\n";
-  $spreadsheet_url="nieuwsitems.csv";
-  //$spreadsheet_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTVxjCCPTognHnuuX9xZAJFBSDl4NtPNHC51MRDaL3pdG0pMzC_y9qLllIxyQeRidh28evRzIsBUjJ3/pub?gid=0&single=true&output=csv"; 
+  $spreadsheet_url="SetA_NieuwsCSV.csv";
   if(!ini_set('default_socket_timeout', 15)) echo "<!-- unable to change socket timeout -->";
   if (($handle = fopen($spreadsheet_url, "r")) !== FALSE) 
       {
       $teller = 0;  
-      while (($regel = fgetcsv($handle, 1000, ",")) !== FALSE) 
+      while (($regel = fgetcsv($handle, 1000, ";")) !== FALSE) 
           {
           $spreadsheet_data[] = $regel;
           if ($teller > 0) 
