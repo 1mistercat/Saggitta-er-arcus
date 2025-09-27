@@ -16,12 +16,12 @@
       </div>
       <nav>
         <ul>
-          <li><a href="#">Home</a></li>
+          <li><a href="index.php#">Home</a></li>
           <li><a href="#">Agenda</a></li>
           <li><a href="#">Nieuws</a></li>
           <li><a href="lidworden.html#">Lid worden</a></li>
-          <li><a href="#">Over ons</a></li>
-          <li><a href="index.php">Contact</a></li>
+          <li><a href="oversagitta.html#">Over ons</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -36,6 +36,7 @@
 
   <!-- NIEUWS -->
   <section class="nieuws">
+    <h2 class="container nieuws-grid"> Nieuws </h2>
     <div class="container nieuws-grid">
       <div class="nieuws-item" id="nieuws1"></div>
       <div class="nieuws-item" id="nieuws2"></div>
@@ -49,12 +50,21 @@
     <div class="container">
       <h2>Over Sagitta et Arcus</h2><hr>
       <p>
-        Sagitta et Arcus is eind jaren 80 opgericht in Nijverdal. 
+        Sagitta et Arcus is eind jaren 80 opgericht in Nijverdal. <br>
         De vereniging heeft als doelstelling om de handboogsport in al zijn aspecten te bevorderen. 
         De vereniging is aangesloten bij de Nederlandse Handboog Bond (NHB) wat ons de mogelijkheid biedt om aan landelijke wedstrijden deel te nemen.
       </p>
       <div class="image-box">
-        <img src="Untxdfghnitled.png" alt="Over ons afbeelding" />
+        <img src="Media/SetA-Veld4.jpg" alt="Over ons afbeelding" />
+      </div>
+      <p>
+        Op onze buitenbaan hebben we de beschikking over een veld waar we kunnen schieten op targets tot 90 meter. <br>
+
+        Daarbij hebben we in het omliggende bos een tweetal 3D-routes uitgezet met een varieteit aan doelen. 
+        Deze twee 3D-banen horen tot de mooiste van Nederland. 
+      </p>
+      <div class="image-box">
+        <img src="Media/SetA-3D-2.jpg" alt="3D-baan" />
       </div>
     </div>
   </section>
@@ -89,12 +99,12 @@
       </div>
       <div class="footer-links">
         <ul>
-          <li><a href="#">Home</a></li>
+          <li><a href="index.php#">Home</a></li>
           <li><a href="#">Nieuws</a></li>
           <li><a href="#">Agenda</a></li>
-          <li><a href="#">Over ons</a></li>
+          <li><a href="oversagitta.html#">Over ons</a></li>
           <li><a href="lidworden.html">Lid worden</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="contact.html#">Contact</a></li>
         </ul>
       </div>
       <div class="footer-socials">

@@ -134,7 +134,7 @@ nav a:focus {
   justify-content: center;
 }
 
-/* Decorative diagonal lines using pseudo elements */
+/* Decorative diagonal lines using pseudo elements 
 .banner::before,
 .banner::after {
   content: "";
@@ -155,6 +155,7 @@ nav a:focus {
   transform: rotate(13deg);
   top: 36%;
 }
+*/
 
 /* Centered hero content placeholder (could be heading / CTA) */
 .banner .hero-content {
@@ -200,7 +201,7 @@ nav a:focus {
   overflow: hidden;
 }
 
-/* Decorative diagonal lines inside cards */
+/* Decorative diagonal lines inside cards
 .image-box::before,
 .image-box::after {
   content: "";
@@ -220,6 +221,7 @@ nav a:focus {
   transform: rotate(30deg);
   top: 65%;
 }
+*/
 
 /* Responsive: stack columns on small screens */
 @media (max-width: 1000px) {
@@ -300,6 +302,7 @@ font-size: 2rem;
 
 h2 {
 margin-left: 20%;
+font-size: 2rem;
 }
 
 .nieuws-grid {
